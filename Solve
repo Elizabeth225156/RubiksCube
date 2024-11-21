@@ -1,0 +1,10 @@
+String[][] greenFace = new String[3][3];
+String[][] orangeFace = new String[3][3];
+String[][] blueFace = new String[3][3];
+String[][] redFace = new String[3][3];
+String[][] yellowFace = new String[3][3];
+String[][] whiteFace = new String[3][3];
+
+void solve() {
+
+}
