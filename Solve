@@ -1,10 +1,23 @@
-String[][] greenFace = new String[3][3];
-String[][] orangeFace = new String[3][3];
-String[][] blueFace = new String[3][3];
-String[][] redFace = new String[3][3];
-String[][] yellowFace = new String[3][3];
-String[][] whiteFace = new String[3][3];
+//These are colors at each side currently
+  String[][] greenFace = new String[3][3];//front
+  String[][] orangeFace = new String[3][3];//right
+  String[][] blueFace = new String[3][3];//back
+  String[][] redFace = new String[3][3];//left
+  String[][] yellowFace = new String[3][3];//top
+  String[][] whiteFace = new String[3][3];//bottom
+  //String[][] extraFace = new String[3][3];
 
-void solve() {
-
+class Solve {
+  
+  public void move(char direction) {
+    switch(direction) {
+    case 'f':
+      for (int i = 0; i < 3; i ++) {
+        greenFace[0][i] = orangeFace[0][i];
+      }
+      break;
+    default:
+      break;
+    }
+  }
 }
