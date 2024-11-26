@@ -1,23 +1,53 @@
-//These are colors at each side currently
-  String[][] greenFace = new String[3][3];//front
-  String[][] orangeFace = new String[3][3];//right
-  String[][] blueFace = new String[3][3];//back
-  String[][] redFace = new String[3][3];//left
-  String[][] yellowFace = new String[3][3];//top
-  String[][] whiteFace = new String[3][3];//bottom
-  //String[][] extraFace = new String[3][3];
+String[][] greenFace = new String[3][3];//front
+String[][] orangeFace = new String[3][3];//right
+String[][] blueFace = new String[3][3];//back
+String[][] redFace = new String[3][3];//left
+String[][] yellowFace = new String[3][3];//top
+String[][] whiteFace = new String[3][3];//bottom
+String[][] extraFace = new String[3][3];
 
 class Solve {
   
-  public void move(char direction) {
-    switch(direction) {
-    case 'f':
-      for (int i = 0; i < 3; i ++) {
-        greenFace[0][i] = orangeFace[0][i];
-      }
-      break;
-    default:
-      break;
+  public void frontTurn() {
+    //Rotate front face
+    
+    //Top layer switch
+    for(int i = 0; i < 3; i ++){
+      extraFace[i][0] = yellowFace[i][2];
+      yellowFace[i][2] = redFace[i][2];
+      redFace[i][2] = whiteFace[i][2];
+      whiteFace[i][2] = orangeFace[i][2];
+      orangeFace[i][2] = extraFace[i][2];
+    }
+  }
+  
+  public void leftTurn(){
+    for(int i = 0; i < 3; i ++){
+      extraFace[0][i] = greenFace[0][i];
+      greenFace[0][i] = whiteFace[0][i];
+      whiteFace[0][i] = blueFace[0][i];
+      blueFace[0][i] = yellowFace[0][i];
+      yellowFace[0][i] = extraFace[0][i];
+    }
+  }
+  
+  public void rightTurn(){
+    for(int i = 0; i < 3; i ++){
+      extraFace[2][i] = greenFace[2][i];
+      greenFace[2][i] = whiteFace[2][i];
+      whiteFace[2][i] = blueFace[2][i];
+      blueFace[2][i] = yellowFace[2][i];
+      yellowFace[2][i] = extraFace[2][i];
+    }
+  }
+  
+  public void backTurn(){
+    for(int i = 0; i < 3; i ++){//CHECK NUMBERS
+      extraFace[2][i] = yellowFace[2][i];
+      yellowFace[2][i] = redFace[2][i];
+      redFace[2][i] = whiteFace[2][i];
+      whiteFace[2][i] = orangeFace[2][i];
+      orangeFace[2][i] = extraFace[2][i];
     }
   }
 }
