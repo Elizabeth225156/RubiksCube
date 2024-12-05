@@ -7,22 +7,22 @@ String[][] whiteFace = new String[3][3];//bottom
 String[][] extraFace = new String[3][3];
 
 class Solve {
-  
+
   public void frontTurn() {
     //Rotate front face
-    
+
     //Top layer switch
-    for(int i = 0; i < 3; i ++){
+    for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = yellowFace[i][2];
-      yellowFace[i][2] = redFace[i][2];
-      redFace[i][2] = whiteFace[i][2];
-      whiteFace[i][2] = orangeFace[i][2];
-      orangeFace[i][2] = extraFace[i][2];
+      yellowFace[i][2] = redFace[2][i];
+      redFace[2][i] = whiteFace[i][0];
+      whiteFace[i][0] = orangeFace[0][i];
+      orangeFace[0][i] = extraFace[i][2];
     }
   }
-  
-  public void leftTurn(){
-    for(int i = 0; i < 3; i ++){
+
+  public void leftTurn() {
+    for (int i = 0; i < 3; i ++) {
       extraFace[0][i] = greenFace[0][i];
       greenFace[0][i] = whiteFace[0][i];
       whiteFace[0][i] = blueFace[0][i];
@@ -30,9 +30,9 @@ class Solve {
       yellowFace[0][i] = extraFace[0][i];
     }
   }
-  
-  public void rightTurn(){
-    for(int i = 0; i < 3; i ++){
+
+  public void rightTurn() {
+    for (int i = 0; i < 3; i ++) {
       extraFace[2][i] = greenFace[2][i];
       greenFace[2][i] = whiteFace[2][i];
       whiteFace[2][i] = blueFace[2][i];
@@ -40,14 +40,34 @@ class Solve {
       yellowFace[2][i] = extraFace[2][i];
     }
   }
-  
-  public void backTurn(){
-    for(int i = 0; i < 3; i ++){//CHECK NUMBERS
-      extraFace[2][i] = yellowFace[2][i];
-      yellowFace[2][i] = redFace[2][i];
-      redFace[2][i] = whiteFace[2][i];
-      whiteFace[2][i] = orangeFace[2][i];
-      orangeFace[2][i] = extraFace[2][i];
+
+  public void backTurn() {
+    for (int i = 0; i < 3; i ++) {
+      extraFace[i][0] = yellowFace[i][0];
+      yellowFace[i][0] = redFace[0][i];
+      redFace[0][i] = whiteFace[i][2];
+      whiteFace[i][2] = orangeFace[2][i];
+      orangeFace[2][i] = extraFace[i][0];
+    }
+  }
+
+  public void upTurn() {
+    for (int i = 0; i < 3; i ++) {
+      extraFace[i][0] = greenFace[i][0];
+      greenFace[i][0] = orangeFace[i][0];
+      orangeFace[i][0] = blueFace[i][2];
+      blueFace[i][2] = redFace[i][0];
+      redFace[i][0] = extraFace[i][0];
+    }
+  }
+
+  public void downTurn() {
+    for (int i = 0; i < 3; i ++) {
+      extraFace[i][0] = greenFace[i][2];
+      greenFace[i][2] = orangeFace[i][2];
+      orangeFace[i][2] = blueFace[i][0];
+      blueFace[i][0] = redFace[i][2];
+      redFace[i][2] = extraFace[i][0];
     }
   }
 }
