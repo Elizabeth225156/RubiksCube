@@ -1,1 +1,1 @@
-A rubiks' cube solver using Processing.org!
+A rubiks' cube solver using Processing.org
