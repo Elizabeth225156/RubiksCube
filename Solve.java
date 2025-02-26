@@ -15,13 +15,15 @@ class Solve {
     extraCube = greenFace[0][2];
     greenFace[0][2] = greenFace[2][2];
     greenFace[2][2] = greenFace[2][0];
+    greenFace[2][0] = greenFace[0][0];
     greenFace[0][0] = extraCube;
 
     //edges
     extraCube = greenFace[0][1];
     greenFace[0][1] = greenFace[1][2];
     greenFace[1][2] = greenFace[2][1];
-    greenFace[2][1] = extraCube;
+    greenFace[2][1] = greenFace[1][0];
+    greenFace[1][0] = extraFace;
 
     //Top layer switch
     for (int i = 0; i < 3; i ++) {
@@ -38,13 +40,15 @@ class Solve {
     extraCube = redFace[0][2];
     redFace[0][2] = redFace[2][2];
     redFace[2][2] = redFace[2][0];
+    redFace[2][0] = redFace[0][0];
     redFace[0][0] = extraCube;
 
     //edges
     extraCube = redFace[0][1];
     redFace[0][1] = redFace[1][2];
     redFace[1][2] = redFace[2][1];
-    redFace[2][1] = extraCube;
+    redFace[2][1] = redFace[1][0];
+    redFace[1][0] = extraFace;
 
     for (int i = 0; i < 3; i ++) {
       extraFace[0][i] = greenFace[0][i];
@@ -60,13 +64,15 @@ class Solve {
     extraCube = orangeFace[0][2];
     orangeFace[0][2] = orangeFace[2][2];
     orangeFace[2][2] = orangeFace[2][0];
+    orangeFace[2][0] = orangeFace[0][0];
     orangeFace[0][0] = extraCube;
 
     //edges
     extraCube = orangeFace[0][1];
     orangeFace[0][1] = orangeFace[1][2];
     orangeFace[1][2] = orangeFace[2][1];
-    orangeFace[2][1] = extraCube;
+    orangeFace[2][1] = orangeFace[1][0];
+    orangeFace[1][0] = extraFace;
 
     for (int i = 0; i < 3; i ++) {
       extraFace[2][i] = greenFace[2][i];
@@ -82,13 +88,15 @@ class Solve {
     extraCube = blueFace[0][2];
     blueFace[0][2] = blueFace[2][2];
     blueFace[2][2] = blueFace[2][0];
+    blueFace[2][0] = blueFace[0][0];
     blueFace[0][0] = extraCube;
 
     //edges
     extraCube = blueFace[0][1];
     blueFace[0][1] = blueFace[1][2];
     blueFace[1][2] = blueFace[2][1];
-    blueFace[2][1] = extraCube;
+    blueFace[2][1] = blueFace[1][0];
+    blueFace[1][0] = extraFace;
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = yellowFace[i][0];
@@ -104,13 +112,15 @@ class Solve {
     extraCube = yellowFace[0][2];
     yellowFace[0][2] = yellowFace[2][2];
     yellowFace[2][2] = yellowFace[2][0];
+    yellowFace[2][0] = yellowFace[0][0];
     yellowFace[0][0] = extraCube;
 
     //edges
     extraCube = yellowFace[0][1];
     yellowFace[0][1] = yellowFace[1][2];
     yellowFace[1][2] = yellowFace[2][1];
-    yellowFace[2][1] = extraCube;
+    yellowFace[2][1] = yellowFace[1][0];
+    yellowFace[1][0] = extraFace;
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = greenFace[i][0];
@@ -126,13 +136,15 @@ class Solve {
     extraCube = whiteFace[0][2];
     whiteFace[0][2] = whiteFace[2][2];
     whiteFace[2][2] = whiteFace[2][0];
+    whiteFace[2][0] = whiteFace[0][0];
     whiteFace[0][0] = extraCube;
 
     //edges
     extraCube = whiteFace[0][1];
     whiteFace[0][1] = whiteFace[1][2];
     whiteFace[1][2] = whiteFace[2][1];
-    whiteFace[2][1] = extraCube;
+    whiteFace[2][1] = whiteFace[1][0];
+    whiteFace[1][0] = extraFace;
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = greenFace[i][2];
