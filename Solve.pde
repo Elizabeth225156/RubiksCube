@@ -9,23 +9,57 @@ String[][] extraFace = new String[3][3];
 //BACK LEFT RIGHT UP FRONT
 //ALL FACES ARE GOOD
 
+void turn(String[][] face){
+  //1 to 7
+    //corners
+    extraFace[0][0] = face[2][0];
+    face[2][0] = face[2][2];
+    face[2][2] = face[0][2];
+    face[0][2] = face[0][0];
+    face[0][0] = extraFace[0][0];
+
+    //edges
+    extraFace[0][0] = face[1][0];
+    face[1][0] = face[2][1];
+    face[2][1] = face[1][2];
+    face[1][2] = face[0][1];
+    face[0][1] = extraFace[0][0];
+ }
+ 
+ void turnShift(String[][] face){
+   //1 to 3
+    //corners
+    extraFace[0][0] = face[2][0];
+    face[2][0] = face[0][0];
+    face[0][0] = face[0][2];
+    face[0][2] = face[2][2];
+    face[2][2] = extraFace[0][0];
+    //edges
+    extraFace[0][0] = face[1][0];
+    face[1][0] = face[0][1];
+    face[0][1] = face[1][2];
+    face[1][2] = face[2][1];
+    face[2][1] = extraFace[0][0];
+ }
+
 class Solve {
 
   public void frontTurn() {
     //Rotate front face
-    //corners
-    extraFace[0][0] = greenFace[2][0];
-    greenFace[2][0] = greenFace[2][2];
-    greenFace[2][2] = greenFace[0][2];
-    greenFace[0][2] = greenFace[0][0];
-    greenFace[0][0] = extraFace[0][0];
+    turn(greenFace);
+    ////corners
+    //extraFace[0][0] = greenFace[2][0];
+    //greenFace[2][0] = greenFace[2][2];
+    //greenFace[2][2] = greenFace[0][2];
+    //greenFace[0][2] = greenFace[0][0];
+    //greenFace[0][0] = extraFace[0][0];
 
-    //edges
-    extraFace[0][0] = greenFace[1][0];
-    greenFace[1][0] = greenFace[2][1];
-    greenFace[2][1] = greenFace[1][2];
-    greenFace[1][2] = greenFace[0][1];
-    greenFace[0][1] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = greenFace[1][0];
+    //greenFace[1][0] = greenFace[2][1];
+    //greenFace[2][1] = greenFace[1][2];
+    //greenFace[1][2] = greenFace[0][1];
+    //greenFace[0][1] = extraFace[0][0];
 
     //Top layer switch
     for (int i = 0; i < 3; i ++) {
@@ -38,18 +72,19 @@ class Solve {
   }
 
   public void leftTurn() {
-    //corners
-    extraFace[0][0] = redFace[2][0];
-    redFace[2][0] = redFace[0][0];
-    redFace[0][0] = redFace[0][2];
-    redFace[0][2] = redFace[2][2];
-    redFace[2][2] = extraFace[0][0];
-    //edges
-    extraFace[0][0] = redFace[1][0];
-    redFace[1][0] = redFace[0][1];
-    redFace[0][1] = redFace[1][2];
-    redFace[1][2] = redFace[2][1];
-    redFace[2][1] = extraFace[0][0];
+    turn(redFace);
+    ////corners
+    //extraFace[0][0] = redFace[2][0];
+    //redFace[2][0] = redFace[0][0];
+    //redFace[0][0] = redFace[0][2];
+    //redFace[0][2] = redFace[2][2];
+    //redFace[2][2] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = redFace[1][0];
+    //redFace[1][0] = redFace[0][1];
+    //redFace[0][1] = redFace[1][2];
+    //redFace[1][2] = redFace[2][1];
+    //redFace[2][1] = extraFace[0][0];
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = greenFace[i][0];
@@ -61,19 +96,20 @@ class Solve {
   }
 
   public void rightTurn() {
-    //corners
-    extraFace[0][0] = orangeFace[2][0];
-    orangeFace[2][0] = orangeFace[2][2];
-    orangeFace[2][2] = orangeFace[0][2];
-    orangeFace[0][2] = orangeFace[0][0];
-    orangeFace[0][0] = extraFace[0][0];
+    turn(orangeFace);
+    ////corners
+    //extraFace[0][0] = orangeFace[2][0];
+    //orangeFace[2][0] = orangeFace[2][2];
+    //orangeFace[2][2] = orangeFace[0][2];
+    //orangeFace[0][2] = orangeFace[0][0];
+    //orangeFace[0][0] = extraFace[0][0];
 
-    //edges
-    extraFace[0][0] = orangeFace[1][0];
-    orangeFace[1][0] = orangeFace[2][1];
-    orangeFace[2][1] = orangeFace[1][2];
-    orangeFace[1][2] = orangeFace[0][1];
-    orangeFace[0][1] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = orangeFace[1][0];
+    //orangeFace[1][0] = orangeFace[2][1];
+    //orangeFace[2][1] = orangeFace[1][2];
+    //orangeFace[1][2] = orangeFace[0][1];
+    //orangeFace[0][1] = extraFace[0][0];
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][2] = greenFace[i][2];
@@ -85,42 +121,63 @@ class Solve {
   }
 
   public void backTurn() {
-    //corners
-    extraFace[0][0] = blueFace[2][0];
-    blueFace[2][0] = blueFace[0][0];
-    blueFace[0][0] = blueFace[0][2];
-    blueFace[0][2] = blueFace[2][2];
-    blueFace[2][2] = extraFace[0][0];
-    //edges
-    extraFace[0][0] = blueFace[1][0];
-    blueFace[1][0] = blueFace[0][1];
-    blueFace[0][1] = blueFace[1][2];
-    blueFace[1][2] = blueFace[2][1];
-    blueFace[2][1] = extraFace[0][0];
+    turnShift(blueFace);
+    ////corners
+    //extraFace[0][0] = blueFace[2][0];
+    //blueFace[2][0] = blueFace[0][0];
+    //blueFace[0][0] = blueFace[0][2];
+    //blueFace[0][2] = blueFace[2][2];
+    //blueFace[2][2] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = blueFace[1][0];
+    //blueFace[1][0] = blueFace[0][1];
+    //blueFace[0][1] = blueFace[1][2];
+    //blueFace[1][2] = blueFace[2][1];
+    //blueFace[2][1] = extraFace[0][0];
 
-    for (int i = 0; i < 3; i ++) {
-      extraFace[0][i] = yellowFace[0][i];
-      yellowFace[0][i] = redFace[i][0];
-      redFace[i][0] = whiteFace[2][i];
-      whiteFace[2][i] = orangeFace[i][2];
-      orangeFace[i][2] = extraFace[0][i];
-    }
+    //for (int i = 0; i < 3; i ++) {
+    //  extraFace[0][i] = yellowFace[0][i];
+    //  yellowFace[0][i] = redFace[i][0];
+    //  redFace[i][0] = whiteFace[2][i];
+    //  whiteFace[2][i] = orangeFace[i][2];
+    //  orangeFace[i][2] = extraFace[0][i];
+    //}
+    extraFace[0][0] = yellowFace[0][0];
+    extraFace[0][1] = yellowFace[0][1];
+    extraFace[0][2] = yellowFace[0][2];
+    
+    yellowFace[0][0] = redFace[2][0];
+    yellowFace[0][1] = redFace[1][0];
+    yellowFace[0][2] = redFace[0][0];
+    
+    redFace[2][0] = whiteFace[2][0];
+    redFace[1][0] = whiteFace[2][1];
+    redFace[0][0] = whiteFace[2][2];
+    
+    whiteFace[2][0] = orangeFace[2][2];
+    whiteFace[2][1] = orangeFace[1][2];
+    whiteFace[2][2] = orangeFace[0][2];
+    
+    orangeFace[2][2] = extraFace[0][2];
+    orangeFace[1][2] = extraFace[0][1];
+    orangeFace[0][2] = extraFace[0][0];
   }
 
   public void upTurn() {
-    //corners
-    extraFace[0][0] = yellowFace[2][0];
-    yellowFace[2][0] = yellowFace[2][2];
-    yellowFace[2][2] = yellowFace[0][2];
-    yellowFace[0][2] = yellowFace[0][0];
-    yellowFace[0][0] = extraFace[0][0];
+    turn(yellowFace);
+    ////corners
+    //extraFace[0][0] = yellowFace[2][0];
+    //yellowFace[2][0] = yellowFace[2][2];
+    //yellowFace[2][2] = yellowFace[0][2];
+    //yellowFace[0][2] = yellowFace[0][0];
+    //yellowFace[0][0] = extraFace[0][0];
 
-    //edges
-    extraFace[0][0] = yellowFace[1][0];
-    yellowFace[1][0] = yellowFace[2][1];
-    yellowFace[2][1] = yellowFace[1][2];
-    yellowFace[1][2] = yellowFace[0][1];
-    yellowFace[0][1] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = yellowFace[1][0];
+    //yellowFace[1][0] = yellowFace[2][1];
+    //yellowFace[2][1] = yellowFace[1][2];
+    //yellowFace[1][2] = yellowFace[0][1];
+    //yellowFace[0][1] = extraFace[0][0];
 
     for (int i = 0; i < 3; i ++) {
       extraFace[0][i] = greenFace[0][i];
@@ -132,18 +189,19 @@ class Solve {
   }
 
   public void downTurn() {
-    //corners
-    extraFace[0][0] = whiteFace[2][0];
-    whiteFace[2][0] = whiteFace[0][0];
-    whiteFace[0][0] = whiteFace[0][2];
-    whiteFace[0][2] = whiteFace[2][2];
-    whiteFace[2][2] = extraFace[0][0];
-    //edges
-    extraFace[0][0] = whiteFace[1][0];
-    whiteFace[1][0] = whiteFace[0][1];
-    whiteFace[0][1] = whiteFace[1][2];
-    whiteFace[1][2] = whiteFace[2][1];
-    whiteFace[2][1] = extraFace[0][0];
+    turnShift(whiteFace);
+    ////corners
+    //extraFace[0][0] = whiteFace[2][0];
+    //whiteFace[2][0] = whiteFace[0][0];
+    //whiteFace[0][0] = whiteFace[0][2];
+    //whiteFace[0][2] = whiteFace[2][2];
+    //whiteFace[2][2] = extraFace[0][0];
+    ////edges
+    //extraFace[0][0] = whiteFace[1][0];
+    //whiteFace[1][0] = whiteFace[0][1];
+    //whiteFace[0][1] = whiteFace[1][2];
+    //whiteFace[1][2] = whiteFace[2][1];
+    //whiteFace[2][1] = extraFace[0][0];
 
     for (int i = 0; i < 3; i ++) {
       extraFace[0][i] = greenFace[2][i];
