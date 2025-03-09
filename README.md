@@ -1,1 +1,1 @@
-A rubiks' cube solver using Processing.org
+Basic model of a rubiks cube in Processing.
