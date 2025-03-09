@@ -67,7 +67,7 @@ class Solve {
   }
 
   public void leftTurn() {
-    turn(redFace);
+    turnShift(redFace);
 
     for (int i = 0; i < 3; i ++) {
       extraFace[i][0] = greenFace[i][0];
@@ -125,8 +125,12 @@ class Solve {
     orangeFace[0][0] = blueFace[2][2];
     orangeFace[0][1] = blueFace[2][1];
     orangeFace[0][2] = blueFace[2][0];
+    
+    blueFace[2][0] = redFace[0][2];
+    blueFace[2][1] = redFace[0][1];
+    blueFace[2][2] = redFace[0][0];
+    
     for ( int i = 0; i < 3; i ++) {
-      blueFace[2][i] = redFace[0][i];
       redFace[0][i] = extraFace[0][i];
     }
   }
@@ -142,8 +146,12 @@ class Solve {
     orangeFace[2][0] = blueFace[0][2];
     orangeFace[2][1] = blueFace[0][1];
     orangeFace[2][2] = blueFace[0][0];
+    
+    blueFace[0][0] = redFace[2][2];
+    blueFace[0][1] = redFace[2][1];
+    blueFace[0][2] = redFace[2][0];
+    
     for (int i = 0; i < 3; i ++) {
-      blueFace[0][i] = redFace[2][i];
       redFace[2][i] = extraFace[0][i];
     }
   }
@@ -200,7 +208,7 @@ class Solve {
   }
 
   public void backTurnShift() {
-    turnShift(blueFace);
+    turn(blueFace);
 
     extraFace[0][0] = yellowFace[0][0];
     extraFace[0][1] = yellowFace[0][1];
@@ -233,8 +241,11 @@ class Solve {
     redFace[0][0] = blueFace[2][2];
     redFace[0][1] = blueFace[2][1];
     redFace[0][2] = blueFace[2][0];
+    
+    blueFace[2][0] = orangeFace[0][2];
+    blueFace[2][1] = orangeFace[0][1];
+    blueFace[2][2] = orangeFace[0][0];
     for(int i = 0; i < 3; i ++) {
-      blueFace[2][i] = orangeFace[0][i];
       orangeFace[0][i] = extraFace[0][i];
     }
   }
@@ -249,8 +260,12 @@ class Solve {
     redFace[2][0] = blueFace[0][2];
     redFace[2][1] = blueFace[0][1];
     redFace[2][2] = blueFace[0][0];
+    
+    blueFace[0][0] = orangeFace[2][2];
+    blueFace[0][1] = orangeFace[2][1];
+    blueFace[0][2] = orangeFace[2][0];
+    
     for(int i = 0; i < 3; i ++){
-      blueFace[0][i] = orangeFace[2][i];
       orangeFace[2][i] = extraFace[0][i];
     }
   }
