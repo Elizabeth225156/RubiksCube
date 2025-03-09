@@ -1,5 +1,22 @@
 void keyPressed() {
   applyMove(key);
+  keyVal = str(key);
+  if(keyVal.equalsIgnoreCase("f") || keyVal.equalsIgnoreCase("b") || keyVal.equalsIgnoreCase("l") || keyVal.equalsIgnoreCase("r") || keyVal.equalsIgnoreCase("u") || keyVal.equalsIgnoreCase("d")){
+    moveList += key;
+  }
+  
+  //if(key == 's'){
+  //  for(int i = 0; i < moveList.length(); i ++){
+  //    curMoveKey = str(moveList.charAt(i));
+  //    if(curMoveKey.equals("f") || curMoveKey.equals("b") || curMoveKey.equals("l") || curMoveKey.equals("r") || curMoveKey.equals("u") || curMoveKey.equals("d")){
+  //      curMoveKey = curMoveKey.toUpperCase();
+  //    } else {
+  //      curMoveKey = curMoveKey.toLowerCase();
+  //    }
+  //    applyMove(curMoveKey.charAt(0));
+  //  }
+  //  moveList = "";
+  //}
 }
 
 Solve cubeModel = new Solve();
@@ -66,9 +83,6 @@ void applyMove(char move){
     currentMove.start();
     cubeModel.rightTurnShift();
     break;
-  case 's':
-    solving = true;
-    break;
   case 'p':
     //FRONT
     System.out.println("FRONT");
@@ -124,6 +138,8 @@ void applyMove(char move){
       System.out.println();
     }
     System.out.println("-------");
+    System.out.println("MOVES TAKEN");
+    System.out.println(moveList);
     break;
   }
 }
